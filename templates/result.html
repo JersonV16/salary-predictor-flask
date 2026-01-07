@@ -18,6 +18,17 @@
             <h2 class="text-success text-center mt-4">
                 Salario predicho: ${{ "{:,.2f}".format(prediction) }}
             </h2>
+
+            <!-- Gráfica de regresión -->
+            {% if plot_exists %}
+            <div class="text-center mt-5">
+                <h4>Gráfica: Relación entre Experiencia y Salario</h4>
+                <img src="{{ url_for('static', filename='plots/prediction_plot.png') }}" 
+                     alt="Gráfica de regresión" class="img-fluid rounded shadow">
+                <p class="text-muted mt-2"><small>Punto verde = tu predicción</small></p>
+            </div>
+            {% endif %}
+
             <div class="text-center mt-4">
                 <a href="/" class="btn btn-secondary">Volver al formulario</a>
             </div>
